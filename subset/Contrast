@@ -1,0 +1,58 @@
+        {
+            "project_name": "twbs/bootstrap",
+            "issue_number": 39095,
+            "commit_sha": "4724e7ae9a8f8a63d835b959d3fa349680bcbde3",
+            "commit_message": "Make form range track background more contrasted (#39095)",
+            "code_changes": "-$form-range-track-bg:             var(--#{$prefix}tertiary-bg) !default;\n+$form-range-track-bg:             var(--#{$prefix}secondary-bg) !default;"
+        },
+        {
+            "project_name": "twbs/bootstrap",
+            "issue_number": 38525,
+            "commit_sha": "14292b4a22b3390a633184b97043e3e4a85db93a",
+            "commit_message": "Increase contrast in dark-mode (#38525)\n\nThis increases the default brightness for the body text-color in dark\nmode, which inceases readability a bit.\n\nIt was also suggested to darken the background a bit, but we\nunfortunately don't have a darker gray in our color palette. So for now,\nlet's increase the text-color by two notches, and leave the background\ncolor as-is instead.",
+            "code_changes": "-$body-color-dark:                   $gray-500 !default;\n+$body-color-dark:                   $gray-300 !default;"
+        },
+        {
+            "project_name": "twbs/bootstrap",
+            "issue_number": 37731,
+            "commit_sha": "eb4819474de3d1dd3bc1a3d6df052fc9c35a9b2b",
+            "commit_message": "Update colour contrast formula with new constant from WCAG 2.2 (#37731)\n\nSee https://github.com/w3c/wcag/pull/1780\r\n\r\nCloses #37022",
+            "code_changes": "-    $value: if(divide($value, 255) < .03928, divide(divide($value, 255), 12.92), nth($_luminance-list, $value + 1));\n+    $value: if(divide($value, 255) < .04045, divide(divide($value, 255), 12.92), nth($_luminance-list, $value + 1));"
+        },
+        {
+            "project_name": "twbs/bootstrap",
+            "issue_number": 35231,
+            "commit_sha": "600a9ee52122439438c26b433a2e4967aec2879f",
+            "commit_message": "Ensure sufficient contrast in `accordion-item` (#35231)\n\nCo-authored-by: XhmikosR <xhmikosr@gmail.com>",
+            "code_changes": "+  color: color-contrast($accordion-bg);"
+        },
+        {
+            "project_name": "twbs/bootstrap",
+            "issue_number": 31839,
+            "commit_sha": "00dd55269af534fd1c37da51573ec122e36313d5",
+            "commit_message": "docs: fix contrast color against `.bg-info` (#31839)\n\n* docs(badge): ensure info badge's contrast\r\n\r\n* docs(colors): fix contrasts in example using .bg-info\r\n\r\n* Update card.md\r\n\r\nCo-authored-by: XhmikosR <xhmikosr@gmail.com>",
+            "code_changes": "-<span class=\"badge bg-{{ .name }}{{ if or (eq .name \"light\") (eq .name \"warning\") }} text-dark{{ end }}\">{{ .name | title }}</span>{{- end -}}\n+<span class=\"badge bg-{{ .name }}{{ if or (eq .name \"light\") (eq .name \"warning\") (eq .name \"info\") }} text-dark{{ end }}\">{{ .name | title }}</span>{{- end -}}\n-<span class=\"badge rounded-pill bg-{{ .name }}{{ if or (eq .name \"light\") (eq .name \"warning\") }} text-dark{{ end }}\">{{ .name | title }}</span>{{- end -}}\n+<span class=\"badge rounded-pill bg-{{ .name }}{{ if or (eq .name \"light\") (eq .name \"warning\") (eq .name \"info\") }} text-dark{{ end }}\">{{ .name | title }}</span>{{- end -}}\n-<div class=\"card{{ if (eq .name \"info\") }} text-body {{ else if not (or (eq .name \"light\") (eq .name \"warning\")) }} text-white{{ end }} bg-{{ .name }} mb-3\" style=\"max-width: 18rem;\">\n+<div class=\"card{{ if (eq .name \"info\") }} text-body{{ else if not (or (eq .name \"light\") (eq .name \"warning\") (eq .name \"info\")) }} text-white{{ end }} bg-{{ .name }} mb-3\" style=\"max-width: 18rem;\">\n-      <div class=\"p-3 mb-3 bg-{{ .name }} {{ if or (eq .name \"light\") (eq .name \"warning\") }}text-dark{{ else if (eq .name \"info\")}}text-body{{ else }}text-white{{ end }}\">{{ .name | title }}</div>\n+      <div class=\"p-3 mb-3 bg-{{ .name }} {{ if or (eq .name \"light\") (eq .name \"warning\") (eq .name \"info\") }}text-dark{{ else if (eq .name \"info\")}}text-body{{ else }}text-white{{ end }}\">{{ .name | title }}</div>\n-<div class=\"p-3 mb-2 bg-{{ .name }} {{ if or (eq .name \"light\") (eq .name \"warning\") }}text-dark{{ else if (eq .name \"info\") }}text-body{{ else }}text-white{{ end }}\">.bg-{{ .name }}</div>\n+<div class=\"p-3 mb-2 bg-{{ .name }} {{ if or (eq .name \"light\") (eq .name \"warning\") (eq .name \"info\") }}text-dark{{ else if (eq .name \"info\") }}text-body{{ else }}text-white{{ end }}\">.bg-{{ .name }}</div>\n-<div class=\"p-3 mb-2 bg-{{ .name }} bg-gradient {{ if or (eq .name \"light\") (eq .name \"warning\") }}text-dark{{ else }}text-white{{ end }}\">.bg-{{ .name }}.bg-gradient</div>\n+<div class=\"p-3 mb-2 bg-{{ .name }} bg-gradient {{ if or (eq .name \"light\") (eq .name \"warning\") (eq .name \"info\") }}text-dark{{ else }}text-white{{ end }}\">.bg-{{ .name }}.bg-gradient</div>"
+        },
+        {
+            "project_name": "twbs/bootstrap",
+            "issue_number": 31576,
+            "commit_sha": "7134f6aa38706398a86311547b8479ec46a094f5",
+            "commit_message": "Drop h4 color customization in callouts (#31576)",
+            "code_changes": "-@mixin bs-callout-variant($color) {\n-  border-left-color: $color;\n+.bd-callout-info {\n+  border-left-color: $bd-info;\n+}\n-  h4 { color: $color; }\n+.bd-callout-warning {\n+  border-left-color: $bd-warning;\n-.bd-callout-info { @include bs-callout-variant($bd-info); }\n-.bd-callout-warning { @include bs-callout-variant($bd-warning); }\n-.bd-callout-danger { @include bs-callout-variant($bd-danger); }\n+.bd-callout-danger {\n+  border-left-color: $bd-danger;\n+}"
+        },
+        {
+            "project_name": "twbs/bootstrap",
+            "issue_number": 31276,
+            "commit_sha": "6914efe8dd73ce403a9e04a43a05fe4642ad87f9",
+            "commit_message": "v5: Tweak some colors (#31276)\n\n* Tweak green and cyan colors, bump min contrast ratio to 4.5\r\n\r\nCo-authored-by: XhmikosR <xhmikosr@gmail.com>",
+            "code_changes": "-$green:   #28a745 !default;\n+$green:   #198754 !default;\n-$cyan:    #17a2b8 !default;\n+$cyan:    #0dcaf0 !default;\n-$min-contrast-ratio:   3 !default;\n+$min-contrast-ratio:   4.5 !default;\n-$color-contrast-dark:      $gray-900 !default;\n+$color-contrast-dark:      $black !default;\n+### Colors"
+        },
+        {
+            "project_name": "twbs/bootstrap",
+            "issue_number": 30989,
+            "commit_sha": "9181c84f0f4536aaeea3ec3157271dcc5d7d6e39",
+            "commit_message": "Ensure to increase contrasts on buttons & colored links hover/active states (#30989)\n\n* feat(buttons): ensure to increase contrasts on hover/active\r\n\r\n* Update _buttons.scss\r\n\r\nCo-authored-by: XhmikosR <xhmikosr@gmail.com>\r\nCo-authored-by: Mark Otto <markd.otto@gmail.com>",
+            "code_changes": "-        color: darken($value, $emphasized-link-hover-darken-percentage);\n+        color: if(color-contrast($value) == $color-contrast-light, darken($value, $emphasized-link-hover-darken-percentage), lighten($value, $emphasized-link-hover-darken-percentage));\n-  $hover-background: darken($background, 7.5%),\n-  $hover-border: darken($border, 10%),\n+  $hover-background: if($color == $color-contrast-light, darken($background, 7.5%), lighten($background, 7.5%)),\n+  $hover-border: if($color == $color-contrast-light, darken($border, 10%), lighten($border, 5%)),\n-  $active-background: darken($background, 10%),\n-  $active-border: darken($border, 12.5%),\n+  $active-background: if($color == $color-contrast-light, darken($background, 10%), lighten($background, 10%)),\n+  $active-border: if($color == $color-contrast-light, darken($border, 12.5%), lighten($border, 5%)),"
+        }
+
+    

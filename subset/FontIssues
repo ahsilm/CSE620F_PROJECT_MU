@@ -1,0 +1,29 @@
+
+        {
+            "project_name": "Leaflet/Leaflet",
+            "issue_number": 8183,
+            "commit_sha": "22c151e2139382c18958507a91133bd87ab7af2d",
+            "commit_message": "attribution flag now resizes with font-size changes (#8183)\n\n* attributin flag resizes with font-size\r\n\r\n* removed + sign\r\n\r\n* added back mistakenly removed css properties\r\n\r\n* flag now resizing\r\n\r\nCo-authored-by: Volodymyr Agafonkin <agafonkin@gmail.com>\r\n\r\n* IE 11 visual bug\r\n\r\n* fixed typo, attribution flag now resizes\r\n\r\n* fixed indentation\r\n\r\nCo-authored-by: Volodymyr Agafonkin <agafonkin@gmail.com>",
+            "code_changes": "-.leaflet-control-attribution svg {\n+.leaflet-attribution-flag {\n+\twidth: 1em;\n+\theight: 0.6669em;\n-var ukrainianFlag = '<svg aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"8\"><path fill=\"#4C7BE1\" d=\"M0 0h12v4H0z\"/><path fill=\"#FFD500\" d=\"M0 4h12v3H0z\"/><path fill=\"#E0BC00\" d=\"M0 7h12v1H0z\"/></svg>';\n+var ukrainianFlag = '<svg aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"8\" viewBox=\"0 0 12 8\" class=\"leaflet-attribution-flag\"><path fill=\"#4C7BE1\" d=\"M0 0h12v4H0z\"/><path fill=\"#FFD500\" d=\"M0 4h12v3H0z\"/><path fill=\"#E0BC00\" d=\"M0 7h12v1H0z\"/></svg>';"
+        },
+        {
+            "project_name": "Leaflet/Leaflet",
+            "issue_number": 8057,
+            "commit_sha": "0ea40738712c1746dd1ac11be7801bb934a62054",
+            "commit_message": "Increase default font sizes for improved legibility (#8057)\n\n* increase default font sizes for legibility\r\n\r\n* decrease opacity of attribution control for legibility",
+            "code_changes": "-\tfont: 12px/1.5 \"Helvetica Neue\", Arial, Helvetica, sans-serif;\n-\tfont: 0.75rem/1.5 \"Helvetica Neue\", Arial, Helvetica, sans-serif;\n+\tfont-family: \"Helvetica Neue\", Arial, Helvetica, sans-serif;\n+\tfont-size: 12px;\n+\tfont-size: 0.75rem;\n+\tline-height: 1.5;\n+\tfont-size: 13px;\n+\tfont-size: 1.08333em;\n-\tbackground: rgba(255, 255, 255, 0.7);\n+\tbackground: rgba(255, 255, 255, 0.8);\n+\tline-height: 1.4;\n-.leaflet-container .leaflet-control-attribution,\n-.leaflet-container .leaflet-control-scale {\n-\tfont-size: 11px;\n-\tfont-size: 0.69rem;\n-\t}\n-\tfont-size: 11px;\n-\tfont-size: 0.69rem;\n-\tline-height: 1.4;\n+\tline-height: 1.3;\n+\tfont-size: 13px;\n+\tfont-size: 1.08333em;\n-\tmargin: 18px 0;\n+\tmargin: 17px 0;\n+\tmargin: 1.3em 0;"
+        },
+        {
+            "project_name": "Leaflet/Leaflet",
+            "issue_number": 7800,
+            "commit_sha": "2eec1985f50dbd2a7be031b7458c39c2e96a35d0",
+            "commit_message": "Add fallbacks to font-size (#7800)",
+            "code_changes": "+\tfont: 0.75rem/1.5 \"Helvetica Neue\", Arial, Helvetica, sans-serif;\n+\tfont-size: 0.69rem;\n+\tfont-size: 0.69rem;"
+        },
+        {
+            "project_name": "zotero/zotero",
+            "issue_number": 2809,
+            "commit_sha": "20aa40c5d22e642394c26fbe98bde837a79fb0d1",
+            "commit_message": "Adjust PDF reader and context pane UI based on font size pref\nFixes #2809\n\n(cherry picked from commit 64897455f42063085b39b042b6fae4300182a246)",
+            "code_changes": "+\t\t\tZotero.setFontSize(Zotero.getActiveZoteroPane().document.getElementById('zotero-context-pane'));\n+\t\t\tfontSize: Zotero.Prefs.get('fontSize'),\n+\t\tthis._prefObserverIDs = [\n+\t\t\tZotero.Prefs.registerObserver('fontSize', this._handleFontSizeChange)\n+\t\t];\n+\tuninit() {\n+\t\tthis._prefObserverIDs.forEach(id => Zotero.Prefs.unregisterObserver(id));\n+\t}\n+\t_handleFontSizeChange = () => {\n+\t\tthis._postMessage({ action: 'setFontSize', fontSize: Zotero.Prefs.get('fontSize') });\n+\t};\n+\t\t\t\t\t\treader.uninit();\n+\t\tZotero.setFontSize(document.getElementById('zotero-context-pane'));\n+    font-size: inherit;\n-Subproject commit 2ee130e0ecbbfe34807a5d5e2b3500ad6d99a57e\n+Subproject commit d391b6bb33a496c21f29cc4ebc737cd2dac29b8f"
+        }
